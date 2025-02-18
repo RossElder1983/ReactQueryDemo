@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { NavLink } from "react-router";
 
 const Navigation:FC = () => {
     return(
@@ -7,14 +8,16 @@ const Navigation:FC = () => {
               <nav className="ds_site-navigation">
                   <ul className="ds_site-navigation__list">
                       <li className="ds_site-navigation__item">
-                          <a href="#" className="ds_site-navigation__link ds_current" aria-current="true">
+                          <NavLink to="users" 
+                            className={({ isActive }) => isActive ? "ds_site-navigation__link ds_current" : "ds_site-navigation__link"} 
+                            aria-current="true">
                               Users
-                          </a>
+                          </NavLink>
                       </li>
                       <li className="ds_site-navigation__item">
-                          <a href="#" className="ds_site-navigation__link">
+                          <NavLink to="usersQuery" className={({ isActive }) => isActive ? "ds_site-navigation__link ds_current" : "ds_site-navigation__link"} >
                               Users (Query)
-                          </a>
+                          </NavLink>
                       </li>
                       <li className="ds_site-navigation__item">
                           <a href="#" className="ds_site-navigation__link ">

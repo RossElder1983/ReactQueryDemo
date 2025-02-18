@@ -27,6 +27,7 @@ const UserCardQuery: FC = () : React.JSX.Element => {
 
   return(   
       <>
+      <h2>User (React Query)</h2>
         {mapUserCard()}
       </>    
     )    

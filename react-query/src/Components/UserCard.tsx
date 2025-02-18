@@ -2,7 +2,8 @@ import React, {FC, ReactElement} from 'react'
 import { useUsers } from '../Hooks/useUsers';
 
 const UserCard: FC = () : React.JSX.Element => { 
-  const { users } = useUsers();  
+  const { users, isFetching } = useUsers(); 
+
   const mapUserCard = () => {
     return(
       users?.map((user : any) => {
@@ -24,11 +25,25 @@ const UserCard: FC = () : React.JSX.Element => {
     )
   }
 
-  return(   
+  const renderSpinner = () => {
+    return(
+      <div>Loading...</div>
+      )
+  }
+
+  if (isFetching) 
+    return renderSpinner()
+      
+  if (users){
+    return(   
       <>
-        {mapUserCard()}
+        <h2>User {isFetching}</h2>
+        {mapUserCard()}        
       </>    
-    )    
+    )   
+  }
+    
+    return <></>
   };
 
 export default UserCard
