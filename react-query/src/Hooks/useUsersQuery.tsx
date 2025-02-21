@@ -17,12 +17,11 @@ export const useUsersQuery = () => {
         return [];
     }
 
-    const {isFetching, data: users} = useQuery({ queryKey: ['users'], queryFn: fetchUsers })
+    const {isFetching, data: users, isLoading} = useQuery({ queryKey: ['users'], queryFn: fetchUsers })
 
     const addUser = () => {       
-        console.log('adding user')
-        
+        console.log('adding user')        
     }
 
-    return {users, error, addUser, isFetching}
+    return {users, error, addUser, isFetching, isLoading}
 }

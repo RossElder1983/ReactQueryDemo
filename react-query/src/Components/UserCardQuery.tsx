@@ -2,7 +2,7 @@ import React, {FC, ReactElement} from 'react'
 import { useUsersQuery } from '../Hooks/useUsersQuery';
 
 const UserCardQuery: FC = () : React.JSX.Element => { 
-  const { users } = useUsersQuery();  
+  const { users, isFetching, isLoading } = useUsersQuery();  
   
   const mapUserCard = () => {
     return(
@@ -25,12 +25,25 @@ const UserCardQuery: FC = () : React.JSX.Element => {
     )
   }
 
-  return(   
+  const renderSpinner = () => {
+    return(
+      <div>Loading...</div>
+      )
+  }
+
+  if (isLoading) 
+    return renderSpinner()
+      
+  if (users){
+    return(   
       <>
-      <h2>User (React Query)</h2>
-        {mapUserCard()}
+        <h2>User {isLoading}</h2>
+        {mapUserCard()}        
       </>    
-    )    
-  };
+    )   
+  }
+
+  return <></>
+};
 
 export default UserCardQuery

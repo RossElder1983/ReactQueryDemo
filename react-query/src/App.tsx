@@ -5,6 +5,7 @@ import Header from './Components/Page/Header';
 import { BrowserRouter, Routes, Route } from "react-router";
 import UserCard from './Components/UserCard';
 import UserCardQuery from './Components/UserCardQuery';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 const queryClient = new QueryClient()
 
@@ -25,6 +26,7 @@ function App() {
           </BrowserRouter>                  
         </div>
       </div>
+      <ReactQueryDevtools initialIsOpen={true} />
     </QueryClientProvider>
   );
 }
